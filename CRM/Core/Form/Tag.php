@@ -273,7 +273,8 @@ class CRM_Core_Form_Tag {
       $deleteSQL = "DELETE FROM civicrm_entity_tag
                     USING civicrm_entity_tag, civicrm_tag
                     WHERE civicrm_tag.id=civicrm_entity_tag.tag_id
-                    AND entity_id=$entityId AND parent_id=$tagsetId";
+                      AND civicrm_entity_tag.entity_table='$entity_table'
+                      AND entity_id=$entityId AND parent_id=$tagsetId";
       if (!empty($realTagIds)) {
         $deleteSQL .= " AND tag_id NOT IN (".implode(', ', $realTagIds).");";
       }
