@@ -63,10 +63,14 @@
                         setVal[x] = valArray[x];
                       }
                     }
-                    CRM.alert('', '{/literal}{ts escape='js'}Removed{/ts}{literal}', 'success');
+                    if (!skipEntityAction) {
+                      CRM.alert('', '{/literal}{ts escape='js'}Removed{/ts}{literal}', 'success');
+                    }
                   }
                   else {
-                    CRM.alert('', '{/literal}{ts escape='js'}Saved{/ts}{literal}', 'success');
+                    if (!skipEntityAction) {
+                      CRM.alert('', '{/literal}{ts escape='js'}Saved{/ts}{literal}', 'success');
+                    }
                   }
                   if ( response.action == 'select' ) {
                     setVal    = valArray;
